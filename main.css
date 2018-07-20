@@ -4,6 +4,9 @@ QWidget {
 	border-color: #20202C;
 	border-width: 0;
 }
+QFrame {
+	border-width: 10px;
+}
 QMenuBar {
 	background-color: #20202C;
 	color: rgba(255,255,255,.3);

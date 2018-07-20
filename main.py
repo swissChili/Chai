@@ -14,7 +14,8 @@ lexers = {
 	"coffee": QsciLexerCoffeeScript,
 	"json": QsciLexerJSON,
 	"html": QsciLexerHTML,
-	"yml": QsciLexerYAML
+	"yml": QsciLexerYAML,
+	"md": QsciLexerMarkdown,
 }
 
 
@@ -22,12 +23,7 @@ class CustomMainWindow(QMainWindow):
 	def __init__(self):
 		super(CustomMainWindow, self).__init__()
 
-		# Window setup
-		# --------------
-		self.setGeometry(300, 300, 800, 400)
-		self.setWindowTitle("Text")
-
-		
+		self.setWindowTitle("Chai")
 
 		# load the json config
 		with open("config.json", "r") as f:
@@ -83,6 +79,8 @@ class CustomMainWindow(QMainWindow):
 		self.__editor.setIndentationsUseTabs(True)
 		self.__editor.setTabWidth(self.Config["tabSize"])
 		self.__editor.setIndentationGuides(self.Config["indentationGuides"])
+		self.__editor.setIndentationGuidesForegroundColor(self.__fglight)
+		self.__editor.setIndentationGuidesBackgroundColor(self.__fglight)
 		self.__editor.setAutoIndent(True)
 		self.__editor.setPaper(self.__bgcolor)
 		self.__editor.setColor(self.__fgcolor)
@@ -107,7 +105,7 @@ class CustomMainWindow(QMainWindow):
 
 		# move the editor!
 
-		self.__editor.setStyleSheet("border: 0px")
+		self.__editor.setStyleSheet("border: 0px; margin: 15px;")
 
 		# ! Add editor to layout !
 		self.__lyt.addWidget(self.__editor)
@@ -124,7 +122,12 @@ class CustomMainWindow(QMainWindow):
 		saveAction = QAction('&Save', self)
 		saveAction.setStatusTip('Save File') 
 		saveAction.triggered.connect(self.saveFile)
+
+		toggleLineNumAction = QAction('&Toggle Line Nums', self)
+		toggleLineNumAction.setStatusTip('Toggle Line Numbers')
+		toggleLineNumAction.triggered.connect(self.toggleLines)
 		fileMenu = menubar.addMenu('&File')
+		viewMenu = menubar.addMenu('&View')
 		
 		if platform.system() != "Darwin":
 			openAction.setShortcut('Ctrl+O')
@@ -135,7 +138,15 @@ class CustomMainWindow(QMainWindow):
 			saveAction.setShortcut('Cmd+S')
 		fileMenu.addAction(openAction)
 		fileMenu.addAction(saveAction)
+		viewMenu.addAction(toggleLineNumAction)
+
 		self.show()
+
+	def toggleLines(self):
+		if self.__editor.marginWidth(1) > 0:
+			self.__editor.setMarginWidth(1, 0)
+		else:
+			self.__editor.setMarginWidth(1, "0000")
 
 	def openFile(self, path):
 		# get content of file
@@ -204,6 +215,7 @@ class CustomMainWindow(QMainWindow):
 		for name, value in languageTheme.items():
 			print(value, name)
 			lexer.setColor(QColor(value), getattr(lexers[l](), name))
+			lexer.setPaper(self.__bgcolor, getattr(lexers[l](), name))
 			lexer.setFont(self.__myFont, getattr(lexers[l](), name))
 
 		
@@ -223,5 +235,3 @@ if __name__ == '__main__':
 	myGUI = CustomMainWindow()
 
 	sys.exit(app.exec_())
-
-

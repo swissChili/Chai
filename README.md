@@ -3,7 +3,7 @@
 Chai is a a minimal code editor written in Python. It supports theming via `json`
 files, and will in the future support scripting with Python
 
-![](chai.png)
+![Chai Editing a CSS File](chai.png)
 
 ## Installation
 Chai requires PyQt5, and Qscintilla for Python. Install these with `pip`, then run
@@ -43,5 +43,5 @@ for Python, the default theme is:
 }
 ```
 
-For info on available types, visit pyqt.sourceforge.net/Docs/QScintilla2/ and 
+For info on available types, visit [the QScintilla Docs](pyqt.sourceforge.net/Docs/QScintilla2/) and 
 look at the available types in the classes for the default Lexers. 
