@@ -1,0 +1,13 @@
+QWidget {
+	background-color: #20202C;
+	color: #fff;
+	border-color: #20202C;
+	border-width: 0;
+}
+QMenuBar {
+	background-color: #20202C;
+	color: rgba(255,255,255,.3);
+}
+* {
+	border-radius: 0px;
+}

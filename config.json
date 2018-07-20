@@ -1,0 +1,14 @@
+{
+	"backgroundColor": "#20202C",
+	"backgroundLight": "#2B2932",
+	"foregroundColor": "#e6dee8",
+	"foregroundLight": "#5F6068",
+	"autoIndent": true,
+	"tabSize": 4,
+	"indentationGuides": false,
+	"endOfLineMode": "unix",
+	"wrapMode": "word",
+	"utf8": true,
+	"fontFamily": "Fira Code",
+	"fontSize": 12
+}

@@ -1,0 +1,34 @@
+{
+	"py": {
+		"Comment": "#41505E",
+		"CommentBlock": "#41505E",
+		"Number": "#5EC4FF",
+		"DoubleQuotedString": "#B7C5D3",
+		"SingleQuotedString": "#B7C5D3",
+		"TripleSingleQuotedString": "#B7C5D3",
+		"TripleDoubleQuotedString": "#B7C5D3",
+		"Keyword": "#5EC4FF",
+		"Identifier": "#5EC4FF",
+		"HighlightedIdentifier": "#8BD49C",
+		"ClassName": "#8BD49C",
+		"FunctionMethodName": "#8BD49C",
+		"Operator": "#B62D65",
+		"Decorator": "#E27E8D",
+		"UnclosedString": "#D95468"
+	},
+	"json": {
+		"Number": "#5EC4FF",
+		"String": "#B7C5D3",
+		"UnclosedString": "#D95468",
+		"Property": "#5EC4FF",
+		"EscapeSequence": "#E27E8D",
+		"CommentLine": "#41505E",
+		"CommentBlock": "#41505E",
+		"Operator": "#B62D65",
+		"IRI": "#8BD49C",
+		"IRICompact": "#8BD49C",
+		"Keyword": "#5EC4FF",
+		"KeywordLD": "#5EC4FF",
+		"Error": "#D95468"
+	}
+}
